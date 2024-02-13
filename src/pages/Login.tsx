@@ -80,15 +80,15 @@ function Login() {
       {step === 1 && (
         <form onSubmit={handleSubmitPhone}>
           <div className="">
-            <p className="md:text-3xl text-3xl text-center md:text-left  bg-clip-text font-extrabold">
+            <p className="md:text-3xl text-3xl lg:text-center text-left md:text-left  bg-clip-text font-extrabold">
               Welcome Back
             </p>
-            <p className="text-base text-center md:text-left text-black">
+            <p className="text-base lg:text-center md:text-left text-black text-left">
               Lets get you back in
             </p>
           </div>
           <div className="mt-4">
-            <p className="text-sm text-center md:text-left text-black">
+            <p className="text-sm  md:text-left text-black text-left">
               Enter your phone number
             </p>
 
