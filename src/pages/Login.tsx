@@ -45,7 +45,7 @@ function Login() {
       setStep(2)
       window.confirmationResult = confirmationResult
     } catch (error) {
-      console.log(error)
+    //   console.log(error)
       alert('There was an error sending OTP')
       setLoading(false)
     }
@@ -92,11 +92,11 @@ function Login() {
               Enter your phone number
             </p>
 
-            <div className="flex items-center space-x-2 mt-4">
+            <div className="flex items-center space-x-2 mt-1">
               <select
                 value={dialCode}
                 onChange={(e) => setDialCode(e.target.value)}
-                className="lg:w-[150px] w-[80px] px-3 py-4 bg-slate-100  border h-full rounded-l-xl "
+                className="lg:w-[200px] w-[80px] px-3 py-4 bg-slate-100  border h-full rounded-l-xl "
               >
                 {countries.map((country, key) => (
                   <option value={country.dial_code} key={key}>
