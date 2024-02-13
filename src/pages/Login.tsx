@@ -76,7 +76,7 @@ function Login() {
     setPhone(e.target.value)
   }
   return (
-    <div className="mx-auto max-w-xl">
+    <div className="mx-auto max-w-2xl">
       {step === 1 && (
         <form onSubmit={handleSubmitPhone}>
           <div className="">

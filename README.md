@@ -49,6 +49,7 @@ npm run build
 The deployed application can be accessed at [https://deedat-codama.web.app/](https://deedat-codama.web.app/).
 
 ## Screenshots
+![Application Diagram](./screenshot.png)
 
 You can find screenshots of the firestore collection below
 (./screenshot.png)
