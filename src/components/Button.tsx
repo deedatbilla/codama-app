@@ -19,7 +19,7 @@ function Button({
       onClick={onClick}
       disabled={disabled || loading}
       type={type}
-      className="rounded-16  shadow-lg bg-blue-700 py-3 px-8 text-lg font-bold text-white w-full text-center"
+      className="rounded-xl  shadow-lg bg-blue-700 py-3 px-8 text-lg font-bold text-white w-full text-center"
     >
       {loading ? 'Loading' : label}
     </button>
