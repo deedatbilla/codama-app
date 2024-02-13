@@ -1,4 +1,3 @@
-Sure, here's the README with the folder structure presented using a tree format:
 
 ```markdown
 # React Application README
