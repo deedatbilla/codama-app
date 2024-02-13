@@ -7,6 +7,7 @@ import {
   RecaptchaVerifier,
   signInWithPhoneNumber,
 } from 'firebase/auth'
+import countries from './countries.json'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare global {
   interface Window {
@@ -21,6 +22,7 @@ function Login() {
   const { auth } = useAppContext()
   const [step, setStep] = useState(1)
   const [otp, setOtp] = useState('')
+  const [dialCode, setDialCode] = useState('+233')
   const generateRecaptcha = () => {
     // window.recaptchaVerifier.render().then((widgetId) => {
     //   window.recaptchaWidgetId = widgetId
@@ -39,7 +41,7 @@ function Login() {
       const appVerifier = window.recaptchaVerifier
       const confirmationResult = await signInWithPhoneNumber(
         auth,
-        phone,
+        `${dialCode}${phone}`,
         appVerifier,
       )
       setLoading(false)
@@ -47,10 +49,11 @@ function Login() {
       window.confirmationResult = confirmationResult
     } catch (error) {
       console.log(error)
+      alert('There was an error sending OTP')
       setLoading(false)
-    //   window.recaptchaVerifier.render().then(function (widgetId) {
-    //     grecaptcha.reset(widgetId)
-    //   })
+      //   window.recaptchaVerifier.render().then(function (widgetId) {
+      //     grecaptcha.reset(widgetId)
+      //   })
     }
   }
 
@@ -63,7 +66,6 @@ function Login() {
       confirmationResult
         .confirm(otp)
         .then(() => {
-          alert('User signed in successfully')
           setLoading(false)
         })
         .catch((error) => {
@@ -93,15 +95,33 @@ function Login() {
               Lets get you back in
             </p>
           </div>
-          <div>
-            <TextInput
-              required
-              onChange={onChange}
-              label="Phone number"
-              type="text"
-              placeholder="Please enter your phone number"
-              value={phone}
-            />
+          <div className="mt-4">
+            <p className="text-sm text-center md:text-left text-black">
+              Enter your phone number
+            </p>
+
+            <div className="flex items-center space-x-2 mt-4">
+              <select
+                value={dialCode}
+                onChange={(e) => setDialCode(e.target.value)}
+                className="w-[150px] px-3 py-4 bg-slate-100  border h-full rounded-l-xl "
+              >
+                {countries.map((country, key) => (
+                  <option value={country.dial_code} key={key}>
+                    {country.dial_code}-{country.name}
+                  </option>
+                ))}
+              </select>
+
+              <TextInput
+                required
+                onChange={onChange}
+                //   label="Phone number"
+                type="text"
+                placeholder="Please enter your phone number"
+                value={phone}
+              />
+            </div>
           </div>
 
           <div className="mt-6">
