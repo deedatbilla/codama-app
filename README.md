@@ -53,6 +53,3 @@ The deployed application can be accessed at [https://deedat-codama.web.app/](htt
 
 You can find screenshots of the firestore collection below
 (./screenshot.png)
-
-
-This format visually represents the folder structure using a tree-like hierarchy.
