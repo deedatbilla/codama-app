@@ -4,7 +4,9 @@ import Profile from './Profile'
 
 function Root() {
   const { user } = useAppContext()
-  return <div>{user ? <Profile /> : <Login />}</div>
+  return (
+    <div className="overflow-x-hidden">{user ? <Profile /> : <Login />}</div>
+  )
 }
 
 export default Root

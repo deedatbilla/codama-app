@@ -24,9 +24,6 @@ function Login() {
   const [otp, setOtp] = useState('')
   const [dialCode, setDialCode] = useState('+233')
   const generateRecaptcha = () => {
-    // window.recaptchaVerifier.render().then((widgetId) => {
-    //   window.recaptchaWidgetId = widgetId
-    // })
     window.recaptchaVerifier = new RecaptchaVerifier(auth, 'sign-in-button', {
       size: 'invisible',
       callback: () => {},
@@ -51,9 +48,6 @@ function Login() {
       console.log(error)
       alert('There was an error sending OTP')
       setLoading(false)
-      //   window.recaptchaVerifier.render().then(function (widgetId) {
-      //     grecaptcha.reset(widgetId)
-      //   })
     }
   }
 
@@ -68,9 +62,7 @@ function Login() {
         .then(() => {
           setLoading(false)
         })
-        .catch((error) => {
-          console.log(error)
-
+        .catch(() => {
           alert('User couldnt sign in (bad verification code?)')
 
           // User couldn't sign in (bad verification code?)
@@ -104,7 +96,7 @@ function Login() {
               <select
                 value={dialCode}
                 onChange={(e) => setDialCode(e.target.value)}
-                className="w-[150px] px-3 py-4 bg-slate-100  border h-full rounded-l-xl "
+                className="lg:w-[150px] w-[80px] px-3 py-4 bg-slate-100  border h-full rounded-l-xl "
               >
                 {countries.map((country, key) => (
                   <option value={country.dial_code} key={key}>
